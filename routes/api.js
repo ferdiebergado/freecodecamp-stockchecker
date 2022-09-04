@@ -42,9 +42,8 @@ module.exports = function (app) {
 
       if (!findResult) {
         await stocksCollection.insertOne({ stock, likes });
+        findResult = await stocksCollection.findOne({ stock });
       }
-
-      findResult = await stocksCollection.findOne({ stock });
 
       if (like) {
         const ip = md5sum(getIp(req));
