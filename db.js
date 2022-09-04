@@ -3,7 +3,6 @@
 const { MongoClient } = require("mongodb");
 
 const url = process.env["DB"];
-const dbName = "proxychecker";
 
 const client = new MongoClient(url, {
   useNewUrlParser: true,
@@ -13,7 +12,7 @@ const client = new MongoClient(url, {
 const dbQuery = async (cb) => {
   await client.connect();
 
-  const db = client.db(dbName);
+  const db = client.db();
 
   return await cb(db);
 };

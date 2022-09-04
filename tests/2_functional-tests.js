@@ -24,7 +24,7 @@ suite("Functional Tests", function () {
       await clearDb();
     });
 
-    after(async () => {
+    after(async function () {
       await client.close();
     });
 
